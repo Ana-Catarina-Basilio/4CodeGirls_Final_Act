@@ -1,0 +1,28 @@
+.app-container{
+padding: 10px;
+border-radius: 10px;
+max-width: 1000px;
+text-align: center;
+margin: 0 auto;
+margin-top: 30px ;
+}
+
+.introduction{
+  text-align: center;
+  font-family: cursive;
+}
+
+ul {
+  text-align: center;
+  list-style-position: inside;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.team-container {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
