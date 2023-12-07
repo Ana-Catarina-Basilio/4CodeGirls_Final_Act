@@ -12,17 +12,23 @@ function Map({ selectedCategories }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
-    if (selectedCategories.length > 0) {
+    if (selectedCategories && selectedCategories.length > 0) {
       // Fetch events based on selected categories
       fetch(`http://localhost:3000/api/events?categories=${selectedCategories.join(',')}`)
         .then(response => response.json())
-        .then(data => setFilteredEvents(data))
+        .then(data => {
+          // Filter the events to include only those belonging to the selected categories
+          const filteredData = data.filter(event => selectedCategories.includes(event.category));
+          setFilteredEvents(filteredData);
+        })
         .catch(error => console.error('Error fetching events:', error));
     } else {
-      // No categories selected, clear the filtered events
+      console.log("No categories selected, clear the filtered events");
       setFilteredEvents([]);
     }
   }, [selectedCategories]);
+
+
 
   const mapPinIcon = new Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/128/8944/8944264.png",
