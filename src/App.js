@@ -5,7 +5,7 @@ import BackButton from './back_button/back_button.js';
 import Map from './map/map.js';
 import wonderMapCategories from './events/wonderMapCatergories';
 import getWonderMapEvents from './events/wonderMapEvents';
-import WelcomePage from './screens/welcomePage'; // Import WelcomePage
+import WelcomePage from './screens/welcomePage'; 
 
 
 function App() {
@@ -50,17 +50,19 @@ function App() {
     setShowWelcome(false); // Hide the welcome page when Explore is clicked
   };
 
+  const handleBackClick = () => {
+    setShowWelcome(true); // Show the welcome page when Back is clicked
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         {/* Conditionally render BackButton based on showWelcome */}
-        {!showWelcome && <BackButton />}
+        {!showWelcome && <BackButton onClick={handleBackClick} />}
       </header>
       {showWelcome ? (
-        // Render the WelcomePage component
         <WelcomePage onExploreClick={handleExploreClick} />
       ) : (
-        // Render the main content when the welcome page is hidden
         <div>
           <div className="checkboxesDiv">
             {categories.map((categoryData) => (
