@@ -53,9 +53,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <BackButton />
+        {/* Conditionally render BackButton based on showWelcome */}
+        {!showWelcome && <BackButton />}
       </header>
-
       {showWelcome ? (
         // Render the WelcomePage component
         <WelcomePage onExploreClick={handleExploreClick} />
