@@ -14,11 +14,11 @@ The page will reload when you make changes.
 You may also see any lint errors in the console.
 
 ### `for backend`
--inside backend folder ,add your mysql password to server.js file
+- inside backend folder ,add your mysql password to server.js file
 - open a second terminal and change directory to the backend folder 
 - run ### `npm install` to install all dependencies including express, mysql
 - run node server.js in this second terminal
--if asks you that local host is taken and to run on another localhost, enter yes.
+- if asks you that local host is taken and to run on another localhost, enter yes.
 
 ### `npm test`
 
