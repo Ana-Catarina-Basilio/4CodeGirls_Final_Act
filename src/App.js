@@ -4,9 +4,10 @@ import './App.css';
 import CategoryBox from './checkboxes/CategoryBox.js';
 import BackButton from './back_button/back_button.js';
 import Map from './map/map.js';
-
+import WelcomePage from './screens/welcomePage'; 
 
 function App() {
+  const [showWelcome, setShowWelcome] = useState(true);
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -28,31 +29,45 @@ function App() {
       );
     }
   };
+  const handleExploreClick = () => {
+    setShowWelcome(false); // Hide the welcome page when Explore is clicked
+  };
+
+  const handleBackClick = () => {
+    setShowWelcome(true); // Show the welcome page when Back is clicked
+  };
 
   return (
     <div className="App">
       <header className="App-header">
-        <BackButton />
+        {/* Conditionally render BackButton based on showWelcome */}
+        {!showWelcome && <BackButton onClick={handleBackClick} />}
       </header>
-      <div className="checkboxesDiv">
-        {categories.map((categoryData) => {
-                    console.log('categoryData', categoryData);// check the categoryData in the console
-          return(
-          <CategoryBox
-            key={categoryData.id} // unique key for each category required when using map function
-            id={categoryData.id.toLowerCase().replace(/\s+/g, '')}// converts characters to lowercase and removes spaces
-            checkboxCategory={categoryData.label}
-            onChange={(isChecked) => handleCheckboxChange(categoryData.label, isChecked)}
-          />
-        );
-        })}
-      </div>
-      <div className="mapDiv">
-        <Map selectedCategories={selectedCategories} />
-      </div>
-      <div className="footer">
-        <p>Code 4 Girls!</p>
-      </div>
+      {showWelcome ? (
+        <WelcomePage onExploreClick={handleExploreClick} />
+      ) : (
+        <>
+          <div className="checkboxesDiv">
+            {categories.map((categoryData) => {
+              console.log('categoryData', categoryData); // Check the categoryData in the console
+              return (
+                <CategoryBox
+                  key={categoryData.id}
+                  id={categoryData.id.toLowerCase().replace(/\s+/g, '')}
+                  checkboxCategory={categoryData.label}
+                  onChange={(isChecked) => handleCheckboxChange(categoryData.label, isChecked)}
+                />
+              );
+            })}
+          </div>
+          <div className="mapDiv">
+            <Map selectedCategories={selectedCategories} />
+          </div>
+          <div className="footer">
+            {/* Footer content */}
+          </div>
+        </>
+      )}
     </div>
   );
 }
