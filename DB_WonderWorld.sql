@@ -55,7 +55,7 @@ VALUES
     ('Music','Caroling for All',  'Harmony Square Amphitheater',  51.5193, -0.1800,  '18:00', '2023-12-20','Join the community in a heartwarming caroling session at the open-air Harmony Square Amphitheater, spreading joy to all.',  'DB_Images/21.jpg'),
     ('Music','Live Jazz Band',  'Jazz Haven Lounge', 51.5264, -0.0877,'21:30', '2023-12-21', 'Immerse yourself in the soulful tunes of a live jazz band at the intimate Jazz Haven Lounge.',  'DB_Images/22.jpg'),
     ('Music','Music with home supplies',  'DIY Melodies Workshop',51.5161, -0.0699,  '15:00', '2023-12-22', 'Explore the art of making music with everyday household items at the DIY Melodies Workshop, a unique and interactive musical experience.',  'DB_Images/23.jpg'),
-    ('Music','Holiday Classics Closing Party',  'Mistletoe Melodies Pavilion', 51.4910, -0.1593, '19:00', '2023-12-23','Bid farewell to the holiday season with a festive bang at the Holiday Classics Closing Party in the Mistletoe Melodies Pavilion.',  'DB_Images/24');
+    ('Music','Holiday Classics Closing Party',  'Mistletoe Melodies Pavilion', 51.4910, -0.1593, '19:00', '2023-12-23','Bid farewell to the holiday season with a festive bang at the Holiday Classics Closing Party in the Mistletoe Melodies Pavilion.',  'DB_Images/24.jpg');
 
 
 
