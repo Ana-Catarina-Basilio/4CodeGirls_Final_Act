@@ -2,8 +2,8 @@ CREATE DATABASE wondermap;
 
 USE wondermap;
 
-CREATE TABLE events (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Events (
+    EventID INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
@@ -25,8 +25,10 @@ CREATE TABLE Users (
 CREATE TABLE Bookings (
     BookingID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
+    EventID INT,
     Booking_Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- so that we can check when the user does the reservation
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (EventID) REFERENCES Events(EventID),
 );
 
 INSERT INTO events (category, name, location, latitude, longitude, event_time, event_date, event_info, event_image)
