@@ -24,10 +24,11 @@
   .exploreButton {
     background-color: #FF7E4C; 
     color: #0C107E;
-    padding: 5px 10px;
+    padding: 100px 80px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     font-size: medium;
     cursor: pointer;
+    border: 1px solid rgb(141, 37, 37);
   }
   

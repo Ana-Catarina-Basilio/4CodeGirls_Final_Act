@@ -8,6 +8,8 @@ import { Icon } from 'leaflet';
 import MarkerClusterGroup from "react-leaflet-cluster";
 import BookButton from '../BookButton.js';
 
+
+
 function Map({ selectedCategories }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
@@ -41,7 +43,15 @@ function Map({ selectedCategories }) {
       <MarkerClusterGroup chunkedLoading>
         {filteredEvents.map((event, index) => (
           <Marker key={index} position={[event.latitude, event.longitude]} icon={mapPinIcon}>
-            <Popup>Event:{}  <br/>Time:{} <br/><BookButton/></Popup>
+            <Popup><strong>Event: </strong>{event.name} <br/>
+            <strong>Location: </strong>{event.location} <br/>
+            <strong>Time: </strong>{event.event_time}  <br/> 
+            <strong>Date: </strong>{event.event_date} <br/>
+            <strong>Details: </strong> {event.event_info}<br/>
+              <img src={require(`../images/${event.event_image}`)} alt={event.name} width="100%" height="100%" />
+              <br/>
+             <BookButton/>
+             </Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>
