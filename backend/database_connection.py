@@ -29,7 +29,6 @@ def test_connection():
 
 
 def select_category(category):
-    db_connection = None
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
@@ -61,7 +60,6 @@ def select_category(category):
 
 
 def get_all_categories():
-    db_connection = None
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
@@ -116,9 +114,9 @@ def create_booking(user_info, event_id):
         cur = db_connection.cursor()
         print('Connected to DB')
 
-        user_first_name, user_surname, user_email = user_info
-        query_user_id = 'SELECT UserID FROM Users WHERE User_FirstName = %s AND User_Surname = %s AND User_Email = %s'
-        cur.execute(query_user_id, (user_first_name, user_surname, user_email))
+        user_first_name, user_email = user_info
+        query_user_id = 'SELECT UserID FROM Users WHERE User_FirstName = %s AND User_Email = %s'
+        cur.execute(query_user_id, (user_first_name, user_email))
         result_user = cur.fetchone()
 
         query_event_name = 'SELECT name FROM Events WHERE EventID = %s'
@@ -126,7 +124,7 @@ def create_booking(user_info, event_id):
         result_event = cur.fetchone()
 
 
-        if result_user and result_event:
+        if  result_user and result_event:
             user_id = result_user[0]
             event_name = result_event[0]
 
@@ -136,7 +134,7 @@ def create_booking(user_info, event_id):
 
             booking_id = cur.lastrowid
 
-            print(f"Booking created for {user_info} for event '{event_name}'")
+            print(f"Booking created for {user_first_name} for event '{event_name}'")
         else:
             print("User or event not found. Unable to create booking.")
 
@@ -151,17 +149,17 @@ def create_booking(user_info, event_id):
 
 #or this version separated into more functions
 
-def get_user_id(user_info):
+def get_user_id_and_name(user_info):
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
 
-        user_first_name, user_surname, user_email = user_info
-        query_user_id = 'SELECT UserID FROM Users WHERE User_FirstName = %s AND User_Surname = %s AND User_Email = %s'
-        cur.execute(query_user_id, (user_first_name, user_surname, user_email))
+        user_first_name, user_email = user_info
+        query_user_id = 'SELECT UserID, User_FirstName FROM Users WHERE User_FirstName = %s AND User_Email = %s'
+        cur.execute(query_user_id, (user_first_name, user_email))
         result_user = cur.fetchone()
 
-        return result_user[0] if result_user else None
+        return result_user if result_user else None
 
     except Exception as exc:
         raise DBConnectionError('Failed to fetch user details') from exc
@@ -174,21 +172,27 @@ def create_booking(user_id, event_id):
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
+        print ('Connected to DB')
 
-        query_event_name = 'SELECT name FROM Events WHERE EventID = %s'
-        cur.execute(query_event_name, (event_id,))
-        result_event = cur.fetchone()
+        user_data = get_user_id_and_name(user_data)
+
+        if user_data:
+            user_id, user_name = user_data
+
+            query_event_name = 'SELECT name FROM Events WHERE EventID = %s'
+            cur.execute(query_event_name, (event_id,))
+            result_event = cur.fetchone()
 
         if result_event:
             event_name = result_event[0]
 
-            query_booking = 'INSERT INTO Bookings (UserID, EventID) VALUES (%s, %s)'
-            cur.execute(query_booking, (user_id, event_id))
+            query_booking = 'INSERT INTO Bookings (UserID, UserName, EventID) VALUES (%s, %s)'
+            cur.execute(query_booking, (user_id, user_name, event_id))
             db_connection.commit()
 
             booking_id = cur.lastrowid
 
-            print(f"Booking created for User ID {user_id} for event '{event_name}' (Booking ID: {booking_id})")
+            print(f"Booking created for User ID {user_name} for event '{event_name}' (Booking ID: {booking_id})")
         else:
             print("Event not found. Unable to create booking.")
 
