@@ -45,8 +45,8 @@ function Map({ selectedCategories }) {
           <Marker key={index} position={[event.latitude, event.longitude]} icon={mapPinIcon}>
             <Popup><strong>Event: </strong>{event.name} <br/>
             <strong>Location: </strong>{event.location} <br/>
+            <strong>Date: </strong>{new Date(event.event_date).toLocaleDateString()} <br/>
             <strong>Time: </strong>{event.event_time}  <br/> 
-            <strong>Date: </strong>{event.event_date} <br/>
             <strong>Details: </strong> {event.event_info}<br/>
               <img src={require(`../images/${event.event_image}`)} alt={event.name} width="100%" height="100%" />
               <br/>
