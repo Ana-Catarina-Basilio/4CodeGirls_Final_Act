@@ -2,8 +2,8 @@ CREATE DATABASE wondermap;
 
 USE wondermap;
 
-CREATE TABLE Events (
-    EventID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
@@ -25,10 +25,8 @@ CREATE TABLE Users (
 CREATE TABLE Bookings (
     BookingID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
-    EventID INT,
     Booking_Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- so that we can check when the user does the reservation
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
-    FOREIGN KEY (EventID) REFERENCES Events(EventID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 INSERT INTO events (category, name, location, latitude, longitude, event_time, event_date, event_info, event_image)
@@ -53,11 +51,13 @@ VALUES
     ('Arts & Crafts', 'Candle Making', 'Illumination Studios', 51.4974, -0.1719, '16:00', '2023-12-19',  'Unleash your creativity at Illumination Studios, where you can craft personalized candles in a variety of festive shapes and scents.', 'DB_Images/17.jpg'),
     ('Arts & Crafts', 'Winter Gallery Walk', 'Frosty Art Boulevard',51.5075, -0.1706,'10:30', '2023-12-18', 'Immerse yourself in the Winter Gallery Walk along Frosty Art Boulevard, showcasing a dazzling display of seasonal artworks.',  'DB_Images/18.jpg'),
     ('Arts & Crafts', 'Festive Light Show', 'Luminous Gardens', 51.5027, -0.2043, '20:00', '2023-12-18', 'Marvel at the enchanting Festive Light Show in the magical surroundings of Luminous Gardens.',  'DB_Images/19.jpg'),
-    ('Arts & Crafts', 'Snow Globe DIY Workshop', 'Crystal Crafts Haven', 51.5198, -0.0938, '15:30', '2023-12-19','Create your own winter wonderland at the Snow Globe DIY Workshop in Crystal Crafts Haven, where imagination knows no bounds.',  'DB_Images\20.jpg'),
-    ('Music','Caroling for All',  'Harmony Square Amphitheater',  51.5193, -0.1800,  '18:00', '2023-12-20','Join the community in a heartwarming caroling session at the open-air Harmony Square Amphitheater, spreading joy to all.',  'DB_Images\21.jpg'),
-    ('Music','Live Jazz Band',  'Jazz Haven Lounge', 51.5264, -0.0877,'21:30', '2023-12-21', 'Immerse yourself in the soulful tunes of a live jazz band at the intimate Jazz Haven Lounge.',  'DB_Images\22.jpg'),
-    ('Music','Music with home supplies',  'DIY Melodies Workshop',51.5161, -0.0699,  '15:00', '2023-12-22', 'Explore the art of making music with everyday household items at the DIY Melodies Workshop, a unique and interactive musical experience.',  'DB_Images\23.jpg'),
-    ('Music','Holiday Classics Closing Party',  'Mistletoe Melodies Pavilion', 51.4910, -0.1593, '19:00', '2023-12-23','Bid farewell to the holiday season with a festive bang at the Holiday Classics Closing Party in the Mistletoe Melodies Pavilion.',  'DB_Images\24');
+    ('Arts & Crafts', 'Snow Globe DIY Workshop', 'Crystal Crafts Haven', 51.5198, -0.0938, '15:30', '2023-12-19','Create your own winter wonderland at the Snow Globe DIY Workshop in Crystal Crafts Haven, where imagination knows no bounds.',  'DB_Images/20.jpg'),
+    ('Music','Caroling for All',  'Harmony Square Amphitheater',  51.5193, -0.1800,  '18:00', '2023-12-20','Join the community in a heartwarming caroling session at the open-air Harmony Square Amphitheater, spreading joy to all.',  'DB_Images/21.jpg'),
+    ('Music','Live Jazz Band',  'Jazz Haven Lounge', 51.5264, -0.0877,'21:30', '2023-12-21', 'Immerse yourself in the soulful tunes of a live jazz band at the intimate Jazz Haven Lounge.',  'DB_Images/22.jpg'),
+    ('Music','Music with home supplies',  'DIY Melodies Workshop',51.5161, -0.0699,  '15:00', '2023-12-22', 'Explore the art of making music with everyday household items at the DIY Melodies Workshop, a unique and interactive musical experience.',  'DB_Images/23.jpg'),
+    ('Music','Holiday Classics Closing Party',  'Mistletoe Melodies Pavilion', 51.4910, -0.1593, '19:00', '2023-12-23','Bid farewell to the holiday season with a festive bang at the Holiday Classics Closing Party in the Mistletoe Melodies Pavilion.',  'DB_Images/24.jpg');
+
+
 
 
 
