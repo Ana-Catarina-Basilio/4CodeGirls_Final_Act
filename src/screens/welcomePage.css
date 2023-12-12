@@ -1,12 +1,18 @@
 /* welcomePage.css*/
-* {
-    box-sizing: border-box;
+
+  @font-face {
+    font-family: "festive";
+    src: url("../fonts/Festive-PersonalUse.otf");
   }
-  body {
-    margin: 0;
-    padding: 0;
+  .mapContainer h1 {
+    font-size: 2.5rem;
+    color: #5E1C25;
+    text-align: center;
+    letter-spacing: 2px; /* Adjust the value as needed */
+    text-shadow: 2px 2px 2px #fff, -2px -2px 2px #fff, 2px -2px 2px #fff, -2px 2px 2px #fff; 
+
   }
-  
+
   .mapContainer {
     background-image: url('../images/welcome_screen.png');
     background-size: cover;
@@ -18,16 +24,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #5E1C25;
+    text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff; 
+
   }
+
   
   .exploreButton {
-    background-color: #FF7E4C; 
-    color: #0C107E;
-    padding: 5px 10px;
+    font-family: "festive";
+    background-color: rgba(175, 38, 28, 0.65); /* Half-opacity orange color */
+    color: #ffffff;
+    padding: 35px; /* Equal padding for both width and height */
     border: none;
-    border-radius: 5px;
+    border-radius: 50%; /* Make it a circle */
     font-size: medium;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 40px; /* Set the desired width */
+    height: 40px; /* Set the desired height */
   }
   
