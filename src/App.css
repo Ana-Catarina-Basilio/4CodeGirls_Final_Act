@@ -4,15 +4,22 @@ body, html {
   padding: 0;
   height: 100%;
 }
-
+@font-face {
+  font-family: "festive";
+  src: url("./fonts/Festive-PersonalUse.otf");
+}
 body {
   background-image: url("./images/snow_background.png");
   background-size: cover;
+  font-family: "festive";
+  font-size: large;
 }
 
 .App {
   height: 100vh;
   width: 100vw;
+  font-family: "festive";
+
 }
 
 .checkboxesDiv {
