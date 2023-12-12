@@ -13,12 +13,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.
 You may also see any lint errors in the console.
 
-for backend 
-you should change directory to the backend folder 
-npm install to install all dependencies including express, mysql
-change to your own mysql password inside server.js
-open a second terminal and run node server.js
-if asks you to run on another localhost, enter yes.
+### `for backend`
+- inside backend folder ,add your mysql password to server.js file
+- open a second terminal and change directory to the backend folder 
+- run ### `npm install` to install all dependencies including express, mysql
+- run node server.js in this second terminal
+- if asks you that local host is taken and to run on another localhost, enter yes.
 
 ### `npm test`
 
