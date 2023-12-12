@@ -14,7 +14,7 @@ function Map({ selectedCategories }) {
   useEffect(() => {
     if (selectedCategories && selectedCategories.length > 0) {
       // Fetch events based on selected categories
-      fetch(`http://localhost:3000/api/events?categories=${selectedCategories.join(',')}`)
+      fetch(`http://127.0.0.1:3000/api/events?categories=${selectedCategories.join(',')}`)
         .then(response => response.json())
         .then(data => {
           // Filter the events to include only those belonging to the selected categories
@@ -41,7 +41,7 @@ function Map({ selectedCategories }) {
       <MarkerClusterGroup chunkedLoading>
         {filteredEvents.map((event, index) => (
           <Marker key={index} position={[event.latitude, event.longitude]} icon={mapPinIcon}>
-            <Popup>Event:{event.name}  <br/>Time:{event.event_time} <br/><BookButton/></Popup>
+            <Popup>Event:{}  <br/>Time:{} <br/><BookButton/></Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>

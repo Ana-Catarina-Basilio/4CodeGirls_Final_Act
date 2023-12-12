@@ -13,7 +13,7 @@ function App() {
 
   // Fetch categories from the api url at the first render
   useEffect(() => {
-    fetch('http://localhost:3000/api/categories')
+    fetch('http://127.0.0.1:3000/api/categories')
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error fetching categories:', error));
