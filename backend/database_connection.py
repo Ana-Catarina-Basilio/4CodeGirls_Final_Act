@@ -29,6 +29,7 @@ def test_connection():
 
 
 def select_category(category):
+    db_connection = None
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
@@ -60,6 +61,7 @@ def select_category(category):
 
 
 def get_all_categories():
+    db_connection = None
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
