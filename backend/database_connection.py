@@ -1,23 +1,36 @@
 import mysql.connector
+from exceptions import DBConnectionError
 
-def connect_to_database():
-    connection = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='1234!',  # Replace with your MySQL password
-        database='wondermap'  # Replace with your WonderMap database name
-    )
-    return connection
+db_credentials = [
+    'localhost',
+    'root',
+    '1234!',  # Replace with your MySQL password
+    'wondermap' # Replace with your WonderMap database name
+]
+
+def connect_to_database(HOST, USER, PASSWORD, DB):
+    try:
+        connection = mysql.connector.connect(
+            host=HOST,
+            user=USER,
+            password=PASSWORD, 
+            database=DB  
+        )
+        return connection
+
+    except Exception as exc:
+        raise DBConnectionError('Failed to connect to database') from exc
+
 
 def test_connection():
-    db_connection = connect_to_database()
+    db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
     cur = db_connection.cursor()
     print('Connected to DB')
 
 
 def select_category(category):
     try:
-        db_connection = connect_to_database()
+        db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
         print('Connected to DB')
 
@@ -37,17 +50,18 @@ def select_category(category):
 
         cur.close()
 
-    except:
-        print('Something went wrong')
+    except Exception as exc:
+        raise DBConnectionError('Failed to connect to database') from exc
 
     finally:
         if db_connection:
             db_connection.close()
             print('DB connection closed')
 
+
 def get_all_categories():
     try:
-        db_connection = connect_to_database()
+        db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
         print('Connected to DB')
 
