@@ -26,7 +26,7 @@ CREATE TABLE Bookings (
     BookingID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
     Booking_Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- so that we can check when the user does the reservation
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 INSERT INTO events (category, name, location, latitude, longitude, event_time, event_date, event_info, event_image)
