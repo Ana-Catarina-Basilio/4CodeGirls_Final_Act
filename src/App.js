@@ -10,7 +10,8 @@ import * as authActions from './authActions';
 import LoginPage from './screens/loginPage';
 import WelcomePage from './screens/welcomePage';
 import { useNavigate } from 'react-router-dom';
-
+import BookingForm from './screens/bookingForm.js';
+import BookingPage from './screens/bookingPage.js';
 
 
 
