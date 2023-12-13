@@ -1,0 +1,18 @@
+/*booking form.css */
+
+@font-face {
+    font-family: "festive";
+    src: url("../fonts/Festive-PersonalUse.otf");
+  }
+  * {
+    background-image: url('../images/welcome_screen.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }

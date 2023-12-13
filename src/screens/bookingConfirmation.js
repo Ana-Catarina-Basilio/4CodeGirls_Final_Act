@@ -17,4 +17,4 @@ const BookingConfirmation = ({ onReturnHomeClick, onSyncToGoogleCalendar }) => {
 );
 };
 
-export default bookingConfirmation;
+export default BookingConfirmation;

@@ -9,6 +9,10 @@ import Map from './map/map.js';
 import * as authActions from './authActions';
 import LoginPage from './screens/loginPage';
 import WelcomePage from './screens/welcomePage';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -16,6 +20,8 @@ function App() {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const username = useSelector((state) => state.username);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
 
@@ -46,12 +52,13 @@ function App() {
   };
   
 
-  // const handleBackClick = () => {
-  //   dispatch(authActions.setLoginStatus(false));
-  //   dispatch(authActions.setShowWelcome(true)); // Show WelcomePage
-  // };
+  const handleBackClick = () => {
+    dispatch(authActions.setLoginStatus(false));
+    dispatch(authActions.setShowWelcome(true)); 
+    navigate('/welcome'); 
+  };
+  
 
-  // back button can be added later
   return (
     <div className="App">
     <header className="App-header"></header>
@@ -62,7 +69,7 @@ function App() {
           path="/map"
           element={
             <div>
-              <BackButton />
+            < BackButton onClick={handleBackClick} />
               <h1 className='category-intro'>Select your festive adventure </h1>
           <div className="checkboxesDiv">
             {categories.map((categoryData) => (

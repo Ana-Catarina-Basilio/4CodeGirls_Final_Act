@@ -13,4 +13,3 @@ function BookButton() {
   );
 }
 export default BookButton;
-
