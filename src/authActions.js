@@ -41,3 +41,10 @@ export const setClearError = () => ({
   type: 'CLEAR_ERROR',
 });
 
+
+export const storeEventDetails =(details)=>({ 
+  type: 'STORE_EVENT_DETAILS',
+  payload: details
+});
+
+

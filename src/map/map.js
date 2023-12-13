@@ -51,7 +51,16 @@ function Map({ selectedCategories }) {
             <strong>Details: </strong> {event.event_info}<br/>
               <img src={require(`../images/${event.event_image}`)} alt={event.name} width="100%" height="100%" />
               <br/>
-             <BookButton/>
+             <BookButton  eventDetails={{
+    name: event.name,
+    events_id: event.events_id,
+    location: event.location,
+    event_date: new Date(event.event_date).toLocaleDateString(),
+    event_time: event.event_time,
+    event_info: event.event_info,
+    // Add other details as needed
+  }}
+/>
              </Popup>
           </Marker>
         ))}

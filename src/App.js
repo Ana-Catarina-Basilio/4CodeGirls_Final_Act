@@ -11,7 +11,7 @@ import LoginPage from './screens/loginPage';
 import WelcomePage from './screens/welcomePage';
 import { useNavigate } from 'react-router-dom';
 import BookingForm from './screens/bookingForm.js';
-import BookingPage from './screens/bookingPage.js';
+import BookingConfirmation from './screens/bookingConfirmation.js';
 
 
 
@@ -91,6 +91,8 @@ function App() {
         </div>
       }
       />
+       <Route path="/booking-form" element={<BookingForm />} />
+        <Route path="/booking-confirmation" element={<BookingConfirmation />} />
       </Routes>
     </div>
   );

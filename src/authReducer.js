@@ -4,6 +4,7 @@ const initialState = {
   username: '',
   error: '',
   showWelcome: false, 
+  eventDetails: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -32,6 +33,11 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         error: '',
+      };
+      case 'STORE_EVENT_DETAILS':
+      return {
+        ...state,
+        eventDetails: [ action.payload],
       };
    
     default:

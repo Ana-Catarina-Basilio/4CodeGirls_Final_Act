@@ -1,11 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./BookButton.css";
+import { storeEventDetails } from "../authActions";
+import { useDispatch } from "react-redux"; // Import useDispatch
+
 
 
 // create a function to handle the BOOK NOW button
-function BookButton() {
+function BookButton({eventDetails}) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
     function HandleBooking() {
-        alert("You have booked an event");
+      dispatch(storeEventDetails(eventDetails));
+        navigate("/booking-form" , { state: { eventDetails } });
     }
   return (
     <button className= "bookButton" onClick ={HandleBooking}>Book Now
