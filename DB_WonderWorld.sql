@@ -3,7 +3,7 @@ CREATE DATABASE wondermap;
 USE wondermap;
 
 CREATE TABLE events (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    events_id INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
@@ -15,19 +15,27 @@ CREATE TABLE events (
     event_image VARCHAR(20)
 );
 
+
+
 CREATE TABLE Users (
     UserID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    events_id INT,
     User_FirstName VARCHAR(100) NOT NULL,
     User_Surname VARCHAR(100) NOT NULL,
-    User_Email VARCHAR(100) NOT NULL
-);
+    User_Email VARCHAR(100) NOT NULL,
+    FOREIGN KEY(events_id) REFERENCES events(events_id)
+    );
+
 
 CREATE TABLE Bookings (
     BookingID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
+    events_id INT, 
     Booking_Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- so that we can check when the user does the reservation
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (events_id) REFERENCES events(events_id)  -- Added foreign key constraint for events_id
 );
+
 
 INSERT INTO events (category, name, location, latitude, longitude, event_time, event_date, event_info, event_image)
 VALUES
@@ -56,6 +64,51 @@ VALUES
     ('Music','Live Jazz Band',  'Jazz Haven Lounge', 51.5264, -0.0877,'21:30', '2023-12-21', 'Immerse yourself in the soulful tunes of a live jazz band at the intimate Jazz Haven Lounge.',  'DB_Images/22.jpg'),
     ('Music','Music with home supplies',  'DIY Melodies Workshop',51.5161, -0.0699,  '15:00', '2023-12-22', 'Explore the art of making music with everyday household items at the DIY Melodies Workshop, a unique and interactive musical experience.',  'DB_Images/23.jpg'),
     ('Music','Holiday Classics Closing Party',  'Mistletoe Melodies Pavilion', 51.4910, -0.1593, '19:00', '2023-12-23','Bid farewell to the holiday season with a festive bang at the Holiday Classics Closing Party in the Mistletoe Melodies Pavilion.',  'DB_Images/24.jpg');
+
+
+/* created a stored procedure named AddUserAndBooking- that adds a user to the Users table and simultaneously updates the Bookings table with a new booking entry.
+ It also increments the booking number by 11 each time the procedure is called. */
+ 
+
+
+DELIMITER //
+
+CREATE PROCEDURE AddUserAndBooking(
+    IN p_userFirstName VARCHAR(100),
+    IN p_userSurname VARCHAR(100),
+    IN p_userEmail VARCHAR(100),
+    IN p_events_id INT  -- Add the events_id parameter
+)
+BEGIN
+    DECLARE lastBookingID INT;
+    DECLARE newBookingID INT;
+    DECLARE bookingNumberPrefix VARCHAR(10);
+    DECLARE bookingNumberSuffix INT;
+
+    -- Start a transaction
+    START TRANSACTION;
+
+    -- Insert the user into the Users table
+    INSERT INTO Users (User_FirstName, User_Surname, User_Email, events_id)
+    VALUES (p_userFirstName, p_userSurname, p_userEmail, p_events_id);
+
+    -- Get the last booking ID
+    SELECT MAX(BookingID) INTO lastBookingID FROM Bookings;
+
+    -- Calculate the new booking number
+    SET bookingNumberPrefix = 'WMCFG';
+    SET bookingNumberSuffix = IFNULL(lastBookingID, 100000) + 11;
+    SET newBookingID = IFNULL(lastBookingID, 100000) + 1;
+
+    -- Insert the booking into the Bookings table
+    INSERT INTO Bookings (BookingID, UserID, Booking_Time, events_id)
+    VALUES (newBookingID, LAST_INSERT_ID(), CURRENT_TIMESTAMP, p_events_id);
+
+    -- Commit the transaction
+    COMMIT;
+END //
+
+DELIMITER ;
 
 
 

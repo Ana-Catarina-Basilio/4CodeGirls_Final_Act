@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import MarkerClusterGroup from "react-leaflet-cluster";
-import BookButton from '../BookButton.js';
+import BookButton from '../book_now_button/BookButton.js';
 
 
 
@@ -44,6 +44,7 @@ function Map({ selectedCategories }) {
         {filteredEvents.map((event, index) => (
           <Marker key={index} position={[event.latitude, event.longitude]} icon={mapPinIcon}>
             <Popup><strong>Event: </strong>{event.name} <br/>
+            <strong>Event ID: </strong>{event.events_id} <br/>
             <strong>Location: </strong>{event.location} <br/>
             <strong>Date: </strong>{new Date(event.event_date).toLocaleDateString()} <br/>
             <strong>Time: </strong>{event.event_time}  <br/> 
