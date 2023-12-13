@@ -1,0 +1,16 @@
+.loginContainer {
+    background-image: url("../images/login_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "arial";
+    font-size: large;
+    color: #fff;
+ 
+}   
