@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './loginPage.css';
 import * as authActions from '../authActions';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = ({ onLogin }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -15,6 +17,7 @@ const LoginPage = ({ onLogin }) => {
     if (password === correctPassword) {
       // Dispatch the login action with the entered username
       dispatch(authActions.login(username));
+      navigate('/welcome')
     } else {
       // Password is incorrect, handle it accordingly (e.g., show an error)
       console.error('Incorrect password. Please try again.');

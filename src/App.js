@@ -1,6 +1,7 @@
 // App.js
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import CategoryBox from './checkboxes/CategoryBox.js';
 import BackButton from './back_button/back_button.js';
@@ -53,14 +54,14 @@ function App() {
   // back button can be added later
   return (
     <div className="App">
-      <header className="App-header"></header>
-      {isLoggedIn ? (
-      <WelcomePage username={username} onExploreClick={exploreClickHandler} />
-      ) : (
-        <LoginPage />
-      )}
-      {isLoggedIn && (
-        <div>
+    <header className="App-header"></header>
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/welcome" element={<WelcomePage username={username} />} />
+      <Route
+          path="/map"
+          element={
+            <div>
           <div className="checkboxesDiv">
             {categories.map((categoryData) => (
               <CategoryBox
@@ -78,7 +79,9 @@ function App() {
             {/* Footer content */}
           </div>
         </div>
-      )}
+      }
+      />
+      </Routes>
     </div>
   );
 }
