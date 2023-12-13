@@ -62,6 +62,8 @@ function App() {
           path="/map"
           element={
             <div>
+              <BackButton />
+              <h1 className='category-intro'>Select your festive adventure </h1>
           <div className="checkboxesDiv">
             {categories.map((categoryData) => (
               <CategoryBox

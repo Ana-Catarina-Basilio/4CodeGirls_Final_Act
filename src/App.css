@@ -9,7 +9,7 @@ body, html {
   src: url("./fonts/Festive-PersonalUse.otf");
 }
 body {
-  background-image: url("./images/snow_background.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),url("./images/snow_background.png");
   background-size: cover;
   font-family: "festive";
   font-size: large;
@@ -34,4 +34,27 @@ body {
   margin-top: 50px;
   margin-bottom: 30px;
   padding: 8px;
+}
+
+.category-intro {
+  text-align: center;
+font-size: 40px;
+opacity: 0;
+transform: translateY(20px);
+animation: fadeInUpBounce 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes fadeInUpBounce {
+from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+50% {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
 }
