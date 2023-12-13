@@ -8,13 +8,15 @@ import { Icon } from 'leaflet';
 import MarkerClusterGroup from "react-leaflet-cluster";
 import BookButton from '../BookButton.js';
 
+
+
 function Map({ selectedCategories }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
     if (selectedCategories && selectedCategories.length > 0) {
       // Fetch events based on selected categories
-      fetch(`http://localhost:3000/api/events?categories=${selectedCategories.join(',')}`)
+      fetch(`http://127.0.0.1:3000/api/events?categories=${selectedCategories.join(',')}`)
         .then(response => response.json())
         .then(data => {
           // Filter the events to include only those belonging to the selected categories
@@ -41,7 +43,15 @@ function Map({ selectedCategories }) {
       <MarkerClusterGroup chunkedLoading>
         {filteredEvents.map((event, index) => (
           <Marker key={index} position={[event.latitude, event.longitude]} icon={mapPinIcon}>
-            <Popup>Event:{event.name}  <br/>Time:{event.event_time} <br/><BookButton/></Popup>
+            <Popup><strong>Event: </strong>{event.name} <br/>
+            <strong>Location: </strong>{event.location} <br/>
+            <strong>Date: </strong>{new Date(event.event_date).toLocaleDateString()} <br/>
+            <strong>Time: </strong>{event.event_time}  <br/> 
+            <strong>Details: </strong> {event.event_info}<br/>
+              <img src={require(`../images/${event.event_image}`)} alt={event.name} width="100%" height="100%" />
+              <br/>
+             <BookButton/>
+             </Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>

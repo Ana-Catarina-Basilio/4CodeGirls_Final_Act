@@ -17,6 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     fetch('http://localhost:3000/api/categories')
       .then((response) => response.json())
       .then((data) => setCategories(data))
@@ -25,6 +26,7 @@ function App() {
         dispatch(authActions.setError('Error fetching categories'));
       });
   }, [dispatch]);
+
 
   const handleCheckboxChange = (category, isChecked) => {
     if (isChecked) {
