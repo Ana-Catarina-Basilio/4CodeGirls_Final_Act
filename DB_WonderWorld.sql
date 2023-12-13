@@ -3,7 +3,7 @@ CREATE DATABASE wondermap;
 USE wondermap;
 
 CREATE TABLE events (
-    events_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
