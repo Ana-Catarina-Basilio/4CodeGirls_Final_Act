@@ -37,12 +37,14 @@ app.get('/api/categories', (req, res) => {
   });
 });
 
-app.post('/submit_form', (req, res) => {
+app.post('/submit-form', (req, res) => {
   const userFirstName = req.body.first_name;
   const userSurname = req.body.surname;
   const userEmail = req.body.email;
+  const events_id = req.body.events_id;
+  console.log('Received data:', req.body);
 
-  submitForm(userFirstName, userSurname, userEmail, (error, result) => {
+  submitForm(userFirstName, userSurname, userEmail, events_id, (error, result) => {
     if (error) {
       console.error('Error processing request:', error);
       res.status(500).json(error);

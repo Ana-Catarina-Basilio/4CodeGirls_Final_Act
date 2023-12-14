@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
 
-    fetch('http://localhost:3000/api/categories')
+    fetch('http://127.0.0.1:3000/api/categories')
       .then((response) => response.json())
       .then((data) => setCategories(data))
       .catch((error) => {

@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Tortias!', // Replace with your MySQL password
+  password: 'Doncross1!', // Replace with your MySQL password
   database: 'wondermap'// Replace with your WonderMap database name
 });
 
@@ -32,14 +32,14 @@ const getAllCategories = (callback) => {
 };
 
 // Function to handle form submission
-const submitForm = (userFirstName, userSurname, userEmail, callback) => {
+const submitForm = (userFirstName, userSurname, userEmail, events_id, callback) => {
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   if (!userFirstName || !userSurname || !userEmail || !isValidEmail(userEmail)) {
     return callback({ error: 'Invalid form data or email format' });
   }
 
-  const storedProcedure = 'CALL AddUserAndBooking(?, ?, ?)';
+  const storedProcedure = 'CALL AddUserAndBooking(?, ?, ?, ?)';
   const validationQuery = 'SELECT * FROM events LIMIT 1';
 
   connection.query(validationQuery, (validationError, validationResults) => {
@@ -48,7 +48,7 @@ const submitForm = (userFirstName, userSurname, userEmail, callback) => {
       return callback({ error: 'Internal Server Error during validation' });
     }
 
-    connection.query(storedProcedure, [userFirstName, userSurname, userEmail], (error) => {
+    connection.query(storedProcedure, [userFirstName, userSurname, userEmail, events_id], (error) => {
       if (error) {
         console.error('Failed to store data in the database:', error);
         return callback({ error: 'Failed to store data in the database' });

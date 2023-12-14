@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './bookingForm.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { storeEventDetails } from '../authActions';
-
+import { submitReservation } from '../api/booking_api';
 
 const BookingForm = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const BookingForm = () => {
   
 
 
-  const handleReservation = (event) => {
+  const handleReservation = async (event) => {
     event.preventDefault();
 
     // Validate first name
@@ -43,9 +43,20 @@ const BookingForm = () => {
 
     dispatch(storeEventDetails(eventDetails));
  
+// api call to save booking details....
+    const reservationResult = await submitReservation(firstName, surname, userEmail, event.events_id);
+    console.log(reservationResult);
 
-    // Perform reservation logic with userName, userEmail, etc.
-    navigate('/booking-confirmation');
+    if (reservationResult.success) {
+      console.log('Reservation successful');
+      navigate('/booking-confirmation');
+    } 
+    else {
+      // Handle error
+      console.error(reservationResult.error);
+      alert(reservationResult.error);
+      navigate('/map');
+    }
   };
 
 return(
@@ -56,6 +67,7 @@ return(
       {eventDetails.map((event, index) => (
         <div key={index}>
          {event.name}. <br/>
+         {event.events_id} <br/>
          {event.event_info}<br/>
             Location: {event.location} <br/>
             Date:{(event.event_date)} <br/>

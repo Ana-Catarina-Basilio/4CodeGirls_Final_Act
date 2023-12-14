@@ -96,6 +96,7 @@ def collect_user_information():
             user_first_name = input("Enter your first name: ")
             user_surname = input("Enter your surname: ")
             user_email = input("Enter your email: ")
+            
 
             if is_valid_email(user_email):
                 return user_first_name, user_surname, user_email
