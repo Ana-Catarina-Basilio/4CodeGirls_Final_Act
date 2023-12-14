@@ -8,11 +8,13 @@ function CategoryBox({ checkboxCategory, onChange }) {
   };
 
   return (
+    <div className="checkbox-container">
     <label className="checkboxes">
       {checkboxCategory}
       <input type="checkbox" onChange={handleCheckboxChange} />
       <span className="checkmark"></span>
     </label>
+       </div>
   );
 }
 

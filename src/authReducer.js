@@ -4,7 +4,7 @@ const initialState = {
   username: '',
   error: '',
   showWelcome: false, 
-  eventDetails: null,
+  eventDetails: [],
 };
 
 const authReducer = (state = initialState, action) => {

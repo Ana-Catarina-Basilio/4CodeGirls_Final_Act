@@ -17,6 +17,7 @@ const BookingForm = () => {
 
   const nameRegex = /^[a-zA-Z\-]+$/; // regex to check for letters and hypen in names
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex to check for valid email
+  
 
 
   const handleReservation = (event) => {
@@ -64,6 +65,7 @@ return(
       ))}
       </div>
       <h1>Enter your details to reserve your place:</h1>
+
       <form>
       <div className="detailsSection">
       <div className="inputGroup">

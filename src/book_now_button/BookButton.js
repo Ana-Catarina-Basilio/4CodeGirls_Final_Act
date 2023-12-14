@@ -13,7 +13,7 @@ function BookButton({eventDetails}) {
 
     function HandleBooking() {
       dispatch(storeEventDetails(eventDetails));
-        navigate("/booking-form" , { state: { eventDetails } });
+        navigate("/booking-form");
     }
   return (
     <button className= "bookButton" onClick ={HandleBooking}>Book Now

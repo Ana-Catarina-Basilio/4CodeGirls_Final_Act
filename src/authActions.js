@@ -44,7 +44,7 @@ export const setClearError = () => ({
 
 export const storeEventDetails =(details)=>({ 
   type: 'STORE_EVENT_DETAILS',
-  payload: details
+  payload: details,
 });
 
 
