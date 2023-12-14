@@ -16,7 +16,8 @@ const submitReservation = async (firstName, surname, email, events_id) => {
       });
   
       if (response.ok) {
-        return { success: true };
+        const data = await response.json();
+        return { success: true, bookingId: data.bookingId };
       } else {
         // Handle error
         console.error('Reservation failed');

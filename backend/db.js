@@ -53,7 +53,9 @@ const submitForm = (userFirstName, userSurname, userEmail, events_id, callback) 
         console.error('Failed to store data in the database:', error);
         return callback({ error: 'Failed to store data in the database' });
       } else {
-        const bookingId = results[0][0].newBookingID; // Assuming BookingID is the correct column name
+        console.log(results)
+        const bookingId = results[0][0].BookingID; 
+        console.log('Booking ID:', bookingId)  
         return callback(null, { message: 'Data successfully stored in the database', bookingId });
       }
     });

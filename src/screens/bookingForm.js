@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { storeEventDetails } from '../authActions';
 import { submitReservation } from '../api/booking_api';
 
+
 const BookingForm = () => {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
@@ -42,6 +43,7 @@ const BookingForm = () => {
     }
 
     dispatch(storeEventDetails(eventDetails));
+  
  
 // api call to save booking details....
     const reservationResult = await submitReservation(firstName, surname, userEmail, event.events_id);
@@ -49,11 +51,13 @@ const BookingForm = () => {
 
     if (reservationResult.success) {
       dispatch(storeEventDetails(eventDetails));
+      // Example usage in BookingForm.js
       console.log('Reservation successful');
       navigate('/booking-confirmation', {
       state: {
         firstName,
         userEmail,
+        bookingDetails: reservationResult.bookingId,
       },
     });
   } else {

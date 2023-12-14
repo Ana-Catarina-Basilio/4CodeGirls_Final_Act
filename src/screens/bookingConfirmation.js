@@ -7,12 +7,14 @@ import { useSelector } from 'react-redux';
 const BookingConfirmation = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { firstName, userEmail } = location.state;
+  const { firstName, userEmail , bookingDetails} = location.state;
   const eventDetails = useSelector((state) => state.eventDetails);
+ 
 
   useEffect(() => {
     console.log('eventDetails:', eventDetails);
-  }, [eventDetails]);
+    console.log('bookingDetails:', bookingDetails);
+  }, [eventDetails, bookingDetails]);
 
   const onReturnHomeClick = () => {
     navigate('/welcome');
@@ -27,7 +29,7 @@ const BookingConfirmation = () => {
       <h2>Your reservation is in {firstName}</h2>
       <h3>We have sent a booking confirmation to {userEmail}</h3>
       <h4>Here are the details for your event:</h4>
-      <p> Reservation no: {Math.floor(Math.random() * 1000000)}</p>
+      <p> Reservation no: {bookingDetails}</p>
       <p> Name: {eventDetails[0][0].name}</p>
       <p> Date: {eventDetails[0][0].event_date}</p>
       <p> Time: {eventDetails[0][0].event_time}</p>
