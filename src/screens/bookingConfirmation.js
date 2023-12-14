@@ -1,5 +1,5 @@
 // bookingConfirmation.js
-import React from 'react';
+import React, {useEffect} from 'react';
 import './bookingConfirmation.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -9,6 +9,10 @@ const BookingConfirmation = () => {
   const location = useLocation();
   const { firstName, userEmail } = location.state;
   const eventDetails = useSelector((state) => state.eventDetails);
+
+  useEffect(() => {
+    console.log('eventDetails:', eventDetails);
+  }, [eventDetails]);
 
   const onReturnHomeClick = () => {
     navigate('/welcome');
@@ -24,10 +28,10 @@ const BookingConfirmation = () => {
       <h3>We have sent a booking confirmation to {userEmail}</h3>
       <h4>Here are the details for your event:</h4>
       <p> Reservation no: {Math.floor(Math.random() * 1000000)}</p>
-      <p> Name: {eventDetails[0].name}</p>
-      <p> Date: {eventDetails[0].event_date}</p>
-      <p> Time: {eventDetails[0].event_time}</p>
-      <p> Location: {eventDetails[0].location}</p>
+      <p> Name: {eventDetails[0][0].name}</p>
+      <p> Date: {eventDetails[0][0].event_date}</p>
+      <p> Time: {eventDetails[0][0].event_time}</p>
+      <p> Location: {eventDetails[0][0].location}</p>
 </div>
   );
 };

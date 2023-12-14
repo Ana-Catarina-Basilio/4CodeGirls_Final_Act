@@ -39,7 +39,12 @@ const authReducer = (state = initialState, action) => {
         ...state,
         eventDetails: [ action.payload],
       };
-   
+      case 'UPDATE_BOOKING_DETAILS':
+      return {
+        ...state,
+        bookingDetails: action.payload,
+      };
+
     default:
       return state; // Add a default case to return the state if the action type is not recognized
   }

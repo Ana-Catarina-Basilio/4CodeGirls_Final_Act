@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '', // Replace with your MySQL password
+  password: '!', // Replace with your MySQL password
   database: 'wondermap'// Replace with your WonderMap database name
 });
 
@@ -48,12 +48,13 @@ const submitForm = (userFirstName, userSurname, userEmail, events_id, callback) 
       return callback({ error: 'Internal Server Error during validation' });
     }
 
-    connection.query(storedProcedure, [userFirstName, userSurname, userEmail, events_id], (error) => {
+    connection.query(storedProcedure, [userFirstName, userSurname, userEmail, events_id], (error, results) => {
       if (error) {
         console.error('Failed to store data in the database:', error);
         return callback({ error: 'Failed to store data in the database' });
       } else {
-        return callback(null, { message: 'Data successfully stored in the database' });
+        const bookingId = results[0][0].newBookingID; // Assuming BookingID is the correct column name
+        return callback(null, { message: 'Data successfully stored in the database', bookingId });
       }
     });
   });

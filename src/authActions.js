@@ -48,3 +48,8 @@ export const storeEventDetails =(details)=>({
 });
 
 
+export const updateBookingDetails = (bookingDetails) => ({
+  type: 'UPDATE_BOOKING_DETAILS',
+  payload: bookingDetails,
+});
+
