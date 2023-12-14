@@ -4,7 +4,7 @@ from exceptions import DBConnectionError
 db_credentials = [
     'localhost',
     'root',
-    '1234!',  # Replace with your MySQL password
+    '',  # Replace with your MySQL password
     'wondermap' # Replace with your WonderMap database name
 ]
 

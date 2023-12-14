@@ -11,36 +11,50 @@ const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const correctPassword = "festive"; 
+  const correctPassword = "festive";
 
-  const handleLogin = () => {
-    if (password === correctPassword) {
-      // Dispatch the login action with the entered username
-      dispatch(authActions.login(username));
-      navigate('/welcome')
-    } else {
-      // Password is incorrect, handle it accordingly (e.g., show an error)
-      console.error('Incorrect password. Please try again.');
+  const handleLogin = (e) => {
+    e.preventDefault(); // Prevents the default form submission behavior
+    if (!username || !password) {
+      alert('Please fill in both name and password.');
+      return;
     }
+    if (!/^[a-zA-Z]+$/.test(username)) {
+      alert('Please enter a name using alphabetical characters only.');
+      return;
+    }
+
+    // Validate password and convert to lowercase
+    const lowerCasePassword = password.toLowerCase();
+    if (lowerCasePassword !== correctPassword) {
+      alert('Wrong password! Please try again. Psst: f_stive');
+      return;
+    }
+
+    // Dispatch the login action with the entered username
+    dispatch(authActions.login(username));
+    navigate('/welcome');
   };
-//error handling added later
+
   return (
     <div className="loginContainer">
       <h1 className="welcome-heading">To discover what lies behind</h1>
       <h3>Type in your name and the secret password!</h3>
-      <input
-        type="text"
-        placeholder="Enter your name"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="secret code, psst f_st_ve"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+      <form onSubmit={handleLogin}>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="secret code, psst f_st_ve"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 };

@@ -12,5 +12,12 @@
     font-family: "arial";
     font-size: large;
     color: #fff;
- 
-}   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-heading {
+    color: #fff;
+}

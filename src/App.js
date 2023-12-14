@@ -18,7 +18,6 @@ import BookingConfirmation from './screens/bookingConfirmation.js';
 function App() {
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const username = useSelector((state) => state.username);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,12 +45,6 @@ function App() {
     }
   };
 
-  const exploreClickHandler = () => {
-    dispatch(authActions.setClearError());
-    dispatch(authActions.setLoginStatus(true));
-    dispatch(authActions.setShowWelcome(false)); // Hide WelcomePage
-  };
-  
 
   const handleBackClick = () => {
     dispatch(authActions.setLoginStatus(false));
