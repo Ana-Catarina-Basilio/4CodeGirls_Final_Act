@@ -48,10 +48,15 @@ const BookingForm = () => {
     console.log(reservationResult);
 
     if (reservationResult.success) {
+      dispatch(storeEventDetails(eventDetails));
       console.log('Reservation successful');
-      navigate('/booking-confirmation');
-    } 
-    else {
+      navigate('/booking-confirmation', {
+      state: {
+        firstName,
+        userEmail,
+      },
+    });
+  } else {
       // Handle error
       console.error(reservationResult.error);
       alert(reservationResult.error);

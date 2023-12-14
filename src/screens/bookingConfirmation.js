@@ -1,11 +1,13 @@
 // bookingConfirmation.js
 import React from 'react';
 import './bookingConfirmation.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const BookingConfirmation = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { firstName, userEmail } = location.state;
   const eventDetails = useSelector((state) => state.eventDetails);
 
   const onReturnHomeClick = () => {
@@ -18,8 +20,8 @@ const BookingConfirmation = () => {
         Home
       </button>
       <h1>Winter WonderMap</h1>
-      <h2>Your reservation is in -insert first namee!</h2>
-      <h3>We have sent a booking confirmation to insert email</h3>
+      <h2>Your reservation is in {firstName}</h2>
+      <h3>We have sent a booking confirmation to {userEmail}</h3>
       <h4>Here are the details for your event:</h4>
       <p> Reservation no: {Math.floor(Math.random() * 1000000)}</p>
       <p> Name: {eventDetails[0].name}</p>
