@@ -10,6 +10,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
     "node": "^21.2.0",
+    "node-mailjet": "^6.0.5",
     "nodemon": "^3.0.2",
     "qrcode.react": "^3.1.0",
     "react": "^18.2.0",
