@@ -1,5 +1,5 @@
 
-const submitReservation = async (firstName, surname, email, events_id) => {
+const submitReservation = async (firstName, surname, email, events_id, event_name, event_date,event_time) => {
     try {
       const response = await fetch('http://127.0.0.1:3000/submit-form', {
         method: 'POST',
@@ -11,7 +11,9 @@ const submitReservation = async (firstName, surname, email, events_id) => {
           surname: surname,
           email: email,
           events_id:events_id,
-    
+          event_name:event_name,
+          event_date:event_date,
+          event_time:event_time,
         }),
       });
   

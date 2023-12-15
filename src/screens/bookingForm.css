@@ -16,7 +16,7 @@ body p {
 
 .form-container {
   text-align: center;
-  background-image: url('../images/welcome_screen.png');
+  background-image: url('../images/snow_background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,12 +43,13 @@ label {
   margin-bottom: 5px;
   display: inline-block;
   width: 120px;
+  font-size: 25px;
 }
 
 input {
-  padding: 8px;
+  padding: 13px;
   margin-bottom: 15px;
-  width: 250px;
+  width: 350px;
   display: inline-block;
 }
 
@@ -58,15 +59,19 @@ label + input {
 
 .reserveButton {
   padding: 10px 20px;
-  background-color: rgba(175, 38, 28, 0.65); 
+  background-color: rgba(93, 8, 4, 0.65); 
   color: #ffffff;
   border: none;
   cursor: pointer;
   font-size: 16px;
+  margin: 0 auto; 
+  border-radius: 10px;
+  position: relative  ;
+  margin-left: 130px;
 }
 
 .reserveButton:hover {
-  background-color: #af261c; 
+  background-color: rgba(239, 209, 165, 0.6);
 }
 
 .event-details {
@@ -75,6 +80,7 @@ label + input {
   padding: 40px 60px;
   font-size: 25px;
   background-color: rgba(239, 209, 165, 0.6);
+  line-height: 2rem ;
   text-align: center;
   max-width: 800px;
   margin-left: auto;
@@ -82,4 +88,7 @@ label + input {
   white-space: normal; 
   line-height: 1.5; 
   text-shadow: none;
+  border-radius: 20px;
+  border: 5px solid #8d5707;
+  font-family: sans-serif;
 }

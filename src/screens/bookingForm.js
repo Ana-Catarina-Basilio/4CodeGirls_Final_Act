@@ -70,23 +70,19 @@ const BookingForm = () => {
 
 return(
   <div className="form-container">
-
-      <h1> Fantastic choice! Here are the details for:</h1>
+      <h1> Fantastic choice! You have selected:</h1>
       <div className = "event-details">
       {eventDetails.map((event, index) => (
         <div key={index}>
          {event.name}. <br/>
-         {event.events_id} <br/>
-         {event.event_info}<br/>
             Location: {event.location} <br/>
             Date:{(event.event_date)} <br/>
             Time: {event.event_time}  <br/> 
-            
+          
         </div>
       ))}
       </div>
-      <h1>Enter your details to reserve your place:</h1>
-
+      <h1>Enter your details to reserve event</h1>
       <form>
       <div className="detailsSection">
       <div className="inputGroup">

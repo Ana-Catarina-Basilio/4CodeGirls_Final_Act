@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '!', // Replace with your MySQL password
-  database: 'wondermap'// Replace with your WonderMap database name
+  database: 'wondermap'
 });
 
 connection.connect((err) => {

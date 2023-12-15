@@ -37,7 +37,7 @@ const LoginPage = ({ onLogin }) => {
   };
 
   return (
-    <div className="loginContainer">
+    <div className="login-container">
       <h1 className="welcome-heading">To discover what lies behind</h1>
       <h3>Type in your name and the secret password!</h3>
       <form onSubmit={handleLogin}>
