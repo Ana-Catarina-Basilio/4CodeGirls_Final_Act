@@ -1,76 +1,70 @@
-# Getting Started with Create React App
+# Winter WonderMap
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Winter WonderMap, your go-to platform for discovering and booking festive events in the vibrant city of London.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
-### `npm install`
-### `npm start`
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [Testing](#testing)
 
-The page will reload when you make changes.
-You may also see any lint errors in the console.
 
-### `for backend`
-- inside backend folder ,add your mysql password to db.js file
-- open a second terminal and change directory to the backend folder 
-- run ### `npm install` to install all dependencies including express, mysql
-- run node app.js in this second terminal
-- if asks you that local host is taken and to run on another localhost, enter yes.
+## Introduction
 
-### `npm test`
+Winter Wonder Map is an interactive map that allows users to explore and book curated events during the festive season in London. The project started with the idea of creating a fictional winter wonderland and evolved into a practical solution focused on the city's real events.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Interactive Map:** Explore the map of London with markers for various festive events.
+- **Event Filtering:** Filter events based on categories to find the ones that interest you.
+- **Booking System:** Securely book your favorite events directly through the platform.
+- **Confirmation Emails:** Receive email confirmations for successful bookings.
+- **Calendar Integration:** Add booked events to your calendar for easy access.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
 
-### `npm run eject`
+- **Frontend:** React, Leaflet.js, Redux, QRCode Generator
+- **Backend:** Node.js, Express.js, MySQL
+- **Styling:** CSS
+- **Communication:** RESTful API
+- **Other Tools:** Git, GitHub, Trello (for task management)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To run the Winter Wonder Map locally, follow these steps:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository: `git clone https://github.com/Ana-Catarina-Basilio/4CodeGirls_Final_Act.git`
+2. Install dependencies stated in package.json file : `npm install` 
+3. Set up the database: Execute all SQL command queries of the DB_WonderWorld.sql file on MySQL.
+4. In the backend folder, the app.js and db.js are responsible for api creation. Go to db.py and enter your SQL password.
+5. Open another terminal and change directory to the backend folder and then run `node app.js` to start the backend. this action will load up localhost:3000
+6. Start the frontend: `npm start` on the other terminal, if prompted to change your host location, accept by typing yes. This will navigate the front end to the next available localhost e.g localhost:3001
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The project is structured as follows:
 
-### Code Splitting
+- `/backend`: contains backend code(db.js and app.js), inactive subfolders: mailjet_api and  python_api_files (both reflect initial plan to use python for backend)
+- `/database`: contains sql file (DB_WonderWorld.sql) for database setup.
+- `/src`: contains the React frontend code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
+1. Enter your own name and password: ### `festive` into the login page
+1. Explore the map to discover festive events.
+2. Filter events based on your preferences by selecting an event category
+3. Book your favorite events on the booking page.
+4. Receive a web confirmation for successful bookings.
+5. Add booked events to your calendar for easy access.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Testing
+Unit testing was written to ensure the Winter Wonder Map functions reliably. 
+run `npm test` ion the terminal and it will display detailed information about the test coverage and any potential issues.
