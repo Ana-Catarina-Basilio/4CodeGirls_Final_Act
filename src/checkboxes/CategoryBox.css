@@ -11,12 +11,15 @@
   
   .checkboxes {
     color: #5E1C25;
+    text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff; 
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 12px;
-    font-size: 25px;
+    margin-bottom: 1px;
+    font-size: 28px;
+    padding: 0px;
     justify-content: center;
+    margin-top: 1px;
   }
   
 

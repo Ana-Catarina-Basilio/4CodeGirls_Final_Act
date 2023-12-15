@@ -1,4 +1,4 @@
-.loginContainer {
+.login-container {
     background-image: url("../images/login_background.jpg");
     background-size: cover;
     background-position: center;
@@ -16,8 +16,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    column-gap: 30px;
 }
 
 .welcome-heading {
     color: #fff;
+    margin-bottom: 10px;
 }

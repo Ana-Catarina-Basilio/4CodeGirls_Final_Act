@@ -9,7 +9,7 @@ body, html {
   src: url("./fonts/Festive-PersonalUse.otf");
 }
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),url("./images/snow_background.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),url('./images/welcome_screen.png');
   background-size: cover;
   font-family: "festive";
   font-size: large;
@@ -19,7 +19,7 @@ body {
   height: 100vh;
   width: 100vw;
   font-family: "festive";
-
+  background-color: rgba(239, 209, 165,0.1 );
 }
 
 .checkboxesDiv {
@@ -28,18 +28,34 @@ body {
   justify-content: space-evenly;
   align-items: center;
   font-weight: bold;
-  background-color: rgba(239, 209, 165, 0.6);
   max-width: 85%;
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 5px;
 }
 
+h1 {
+  font-size: 50px;
+  color: rgb(0, 56, 41);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
 
 .category-intro {
   text-align: center;
-font-size: 40px;
+  color: #5E1C25;
+  text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff; 
+  max-width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 0;
+font-size: 50px;
 opacity: 0;
 transform: translateY(20px);
 animation: fadeInUpBounce 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;

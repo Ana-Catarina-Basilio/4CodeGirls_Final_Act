@@ -39,9 +39,8 @@ const authReducer = (state = initialState, action) => {
         ...state,
         eventDetails: [ action.payload],
       };
-   
     default:
-      return state; // Add a default case to return the state if the action type is not recognized
+      return state; 
   }
 };
 

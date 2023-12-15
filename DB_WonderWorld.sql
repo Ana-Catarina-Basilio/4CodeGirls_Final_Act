@@ -104,6 +104,9 @@ BEGIN
     INSERT INTO Bookings (BookingID, UserID, Booking_Time, events_id)
     VALUES (newBookingID, LAST_INSERT_ID(), CURRENT_TIMESTAMP, p_events_id);
 
+    SELECT newBookingID AS BookingID FROM Bookings WHERE  UserID = LAST_INSERT_ID();
+     
+
     -- Commit the transaction
     COMMIT;
 END //

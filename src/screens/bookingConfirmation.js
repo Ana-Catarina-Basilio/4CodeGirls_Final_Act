@@ -1,31 +1,53 @@
 // bookingConfirmation.js
-import React from 'react';
+import React, {useEffect} from 'react';
 import './bookingConfirmation.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import QRCodeGenerator from '../QRCode/QRCode';
 
 const BookingConfirmation = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { firstName, userEmail , bookingDetails} = location.state;
   const eventDetails = useSelector((state) => state.eventDetails);
+ 
+
+  useEffect(() => {
+    console.log('eventDetails:', eventDetails);
+    console.log('bookingDetails:', bookingDetails);
+  }, [eventDetails, bookingDetails]);
 
   const onReturnHomeClick = () => {
     navigate('/welcome');
   };
 
+  const handleExit = () => {
+    navigate('/');
+  }
+
   return (
     <div className="bookingBox">
+    <div className="naviButton">
       <button className="BackButton" type="button" onClick={onReturnHomeClick}>
         Home
       </button>
+      <button className="BackButton" type="button" onClick={handleExit}>
+        Exit
+      </button>
+      </div>
       <h1>Winter WonderMap</h1>
-      <h2>Your reservation is in -insert first namee!</h2>
-      <h3>We have sent a booking confirmation to insert email</h3>
-      <h4>Here are the details for your event:</h4>
-      <p> Reservation no: {Math.floor(Math.random() * 1000000)}</p>
-      <p> Name: {eventDetails[0].name}</p>
-      <p> Date: {eventDetails[0].event_date}</p>
-      <p> Time: {eventDetails[0].event_time}</p>
-      <p> Location: {eventDetails[0].location}</p>
+      <div className= "booking-container">
+      <h1>Your reservation is in {firstName} !</h1>
+      <h2>We have sent a booking confirmation to {userEmail}</h2>
+      <p> Reservation no: {bookingDetails}</p>
+      <p> Name: {eventDetails[0][0].name}</p>
+      <p> Date: {eventDetails[0][0].event_date}</p>
+      <p> Time: {eventDetails[0][0].event_time}</p>
+      <p> Location: {eventDetails[0][0].location}</p>
+      <h1 className= 'qr-code-title'>Your QR Code</h1>
+      <p className ='qr-info'> Scan to add to your iphone calender</p>
+      <QRCodeGenerator />
+      </div>
 </div>
   );
 };

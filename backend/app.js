@@ -51,7 +51,7 @@ app.post('/submit-form', (req, res) => {
       return;
     }
 
-    res.json(result);
+    res.json({ success: true, bookingId: result.bookingId })
   });
 });
 

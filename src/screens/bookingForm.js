@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { storeEventDetails } from '../authActions';
 import { submitReservation } from '../api/booking_api';
 
+
 const BookingForm = () => {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
@@ -42,16 +43,24 @@ const BookingForm = () => {
     }
 
     dispatch(storeEventDetails(eventDetails));
+  
  
 // api call to save booking details....
     const reservationResult = await submitReservation(firstName, surname, userEmail, event.events_id);
     console.log(reservationResult);
 
     if (reservationResult.success) {
+      dispatch(storeEventDetails(eventDetails));
+      // Example usage in BookingForm.js
       console.log('Reservation successful');
-      navigate('/booking-confirmation');
-    } 
-    else {
+      navigate('/booking-confirmation', {
+      state: {
+        firstName,
+        userEmail,
+        bookingDetails: reservationResult.bookingId,
+      },
+    });
+  } else {
       // Handle error
       console.error(reservationResult.error);
       alert(reservationResult.error);
@@ -61,23 +70,19 @@ const BookingForm = () => {
 
 return(
   <div className="form-container">
-
-      <h1> Fantastic choice! Here are the details for:</h1>
+      <h1> Fantastic choice! You have selected:</h1>
       <div className = "event-details">
       {eventDetails.map((event, index) => (
         <div key={index}>
          {event.name}. <br/>
-         {event.events_id} <br/>
-         {event.event_info}<br/>
             Location: {event.location} <br/>
             Date:{(event.event_date)} <br/>
             Time: {event.event_time}  <br/> 
-            
+          
         </div>
       ))}
       </div>
-      <h1>Enter your details to reserve your place:</h1>
-
+      <h1>Enter your details to reserve event</h1>
       <form>
       <div className="detailsSection">
       <div className="inputGroup">
