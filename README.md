@@ -2,6 +2,8 @@
 
 Welcome to Winter WonderMap, your go-to platform for discovering and booking festive events in the vibrant city of London.
 
+
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -15,7 +17,8 @@ Welcome to Winter WonderMap, your go-to platform for discovering and booking fes
 
 ## Introduction
 
-Winter Wonder Map is an interactive map that allows users to explore and book curated events during the festive season in London. The project started with the idea of creating a fictional winter wonderland and evolved into a practical solution focused on the city's real events.
+Winter WonderMap is an interactive map that allows users to explore and book curated events during the festive season in London. The project started with the idea of creating a fictional winter wonderland and evolved into a practical solution focused on the city's real events.
+
 
 
 ## Features
@@ -36,9 +39,10 @@ Winter Wonder Map is an interactive map that allows users to explore and book cu
 - **Other Tools:** Git, GitHub, Trello (for task management)
 
 
+
 ## Getting Started
 
-To run the Winter Wonder Map locally, follow these steps:
+To run the Winter WonderMap locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/Ana-Catarina-Basilio/4CodeGirls_Final_Act.git`
 2. Install dependencies stated in package.json file : `npm install` 
@@ -56,6 +60,8 @@ The project is structured as follows:
 - `/database`: contains sql file (DB_WonderWorld.sql) for database setup.
 - `/src`: contains the React frontend code.
 
+
+
 ## Usage
 1. Enter your own name and password: ### `festive` into the login page
 1. Explore the map to discover festive events.
@@ -65,6 +71,7 @@ The project is structured as follows:
 5. Add booked events to your calendar for easy access.
 
 
+
 ## Testing
-Unit testing was written to ensure the Winter Wonder Map functions reliably. 
+Unit testing was written to ensure the Winter WonderMap functions reliably. 
 run `npm test` ion the terminal and it will display detailed information about the test coverage and any potential issues.
