@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from database_connection import select_category, get_all_categories
+from python_api_files_not_used.database_connection import select_category, get_all_categories
 
 app = Flask(__name__)
 

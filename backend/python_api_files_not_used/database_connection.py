@@ -1,5 +1,5 @@
 import mysql.connector
-from exceptions import DBConnectionError
+from python_api_files_not_used.exceptions import DBConnectionError
 
 db_credentials = [
     'localhost',
