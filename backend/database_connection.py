@@ -4,7 +4,7 @@ from exceptions import DBConnectionError
 db_credentials = [
     'localhost',
     'root',
-    '',  # Replace with your MySQL password
+    'PeyLinMaj',  # Replace with your MySQL password
     'wondermap' # Replace with your WonderMap database name
 ]
 
@@ -29,6 +29,7 @@ def test_connection():
 
 
 def select_category(category):
+    db_connection = None
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
@@ -60,6 +61,7 @@ def select_category(category):
 
 
 def get_all_categories():
+    db_connection = None
     try:
         db_connection = connect_to_database(db_credentials[0], db_credentials[1], db_credentials[2], db_credentials[3])
         cur = db_connection.cursor()
@@ -68,8 +70,7 @@ def get_all_categories():
         query = 'SELECT DISTINCT category FROM events'
         cur.execute(query)
         categories = cur.fetchall()
-        for i in categories:
-            print(i)
+        return categories
 
         cur.close()
 
@@ -82,7 +83,7 @@ def get_all_categories():
             print('DB connection closed')    
 
 
-# This function will allow us to ask for the user information, making sure it introduces a valid email. 
+This function will allow us to ask for the user information, making sure it introduces a valid email. 
            
 def collect_user_information():
 
