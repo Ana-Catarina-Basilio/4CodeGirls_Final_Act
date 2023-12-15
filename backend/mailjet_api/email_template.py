@@ -1,17 +1,15 @@
-api_key_public = '8a32ad471f1339f1ec2924150e2cb74f'
-api_key_private = '545e9b580815d25a653721584e7279ef'
+from mailjet_rest import Client
+import auth_mailjet
 
-
-
-API_KEY = mailjet_login_auth.api_key_public
-API_SECRET = mailjet_login_auth.api_key_private
+API_KEY = auth_mailjet.api_key_public
+API_SECRET = auth_mailjet.api_key_private
 
 mailjet = Client(auth=(API_KEY, API_SECRET), version='v3.1')
 
 details= {
     'sender': 'Jess.upson@hotmail.co.uk', # Replace with email address we will send confirmation from,
-    'recipient' : 'upson.gross@outlook.com', # Replace with email (SQL query?) that we will send confirmation too, SELECT email from Users where user_id = 
-    'booking_activity' : 'Festive Family Photoshoot', # SQL query to get activity name- SELECT name from events where activity_id =
+    'recipient' : 'upson.gross@outlook.com', # Replace with email (SQL query?) that we will send confirmation too,
+    'booking_activity' : 'Festive Family Photoshoot',
     'booking_date' : '23/12/2023',
     'booking_session' : 'Morning'
 }

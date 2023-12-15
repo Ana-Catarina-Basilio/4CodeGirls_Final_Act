@@ -1,7 +1,7 @@
 from unittest import TestCase, main
 import requests
-from database_connection import select_category, connect_to_database, db_credentials
-from exceptions import DBConnectionError
+from python_api_files_not_used.database_connection import select_category, connect_to_database, db_credentials
+from python_api_files_not_used.exceptions import DBConnectionError
 
 class TestSelectingEventsByCategory(TestCase):
     def test_events_endpoint_no_category(self):

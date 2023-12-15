@@ -9,17 +9,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "arial";
+    font-family: "Arial", sans-serif;
     font-size: large;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-shadow: 2px 2px 4px #340F13; 
     column-gap: 30px;
 }
 
 .welcome-heading {
     color: #fff;
     margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #340F13;
+}
+
+.submitLoginButton {
+    background-color: #1E4319;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: large;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitLoginButton:hover {
+    background-color: #16401A;
 }

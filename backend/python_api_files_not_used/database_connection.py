@@ -1,10 +1,10 @@
 import mysql.connector
-from exceptions import DBConnectionError
+from python_api_files_not_used.exceptions import DBConnectionError
 
 db_credentials = [
     'localhost',
     'root',
-    'PeyLinMaj',  # Replace with your MySQL password
+    '3Tortas!',  # Replace with your MySQL password
     'wondermap' # Replace with your WonderMap database name
 ]
 
