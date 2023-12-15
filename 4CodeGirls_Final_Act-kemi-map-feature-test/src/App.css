@@ -1,0 +1,77 @@
+/* app.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+@font-face {
+  font-family: "festive";
+  src: url("./fonts/Festive-PersonalUse.otf");
+}
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),url('./images/welcome_screen.png');
+  background-size: cover;
+  font-family: "festive";
+  font-size: large;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  font-family: "festive";
+  background-color: rgba(239, 209, 165,0.1 );
+}
+
+.checkboxesDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: bold;
+  max-width: 85%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+h1 {
+  font-size: 50px;
+  color: rgb(0, 56, 41);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.category-intro {
+  text-align: center;
+  color: #5E1C25;
+  text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff; 
+  max-width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 0;
+font-size: 50px;
+opacity: 0;
+transform: translateY(20px);
+animation: fadeInUpBounce 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes fadeInUpBounce {
+from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+50% {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}

@@ -1,0 +1,17 @@
+/* sizing of map container */
+.leaflet-container {
+    border: 5px solid #5E1C25;
+    border-radius: 2%;
+    background: none !important;
+    position: center;
+    height: 650px;
+    width: 85%;
+    margin: auto;
+    padding: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .leaflet-container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
