@@ -83,7 +83,7 @@ def get_all_categories():
             print('DB connection closed')    
 
 
-This function will allow us to ask for the user information, making sure it introduces a valid email. 
+# This function will allow us to ask for the user information, making sure it introduces a valid email. 
            
 def collect_user_information():
 
