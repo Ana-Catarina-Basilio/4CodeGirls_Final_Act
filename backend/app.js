@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// GET endpoint to retrieve events by category
 app.get('/api/events', (req, res) => {
   const category = req.query.category;
   
@@ -24,6 +25,8 @@ app.get('/api/events', (req, res) => {
   });
 });
 
+
+// GET endpoint to retrieve all categories
 app.get('/api/categories', (req, res) => {
   getAllCategories((error, results) => {
     if (error) {
@@ -37,6 +40,7 @@ app.get('/api/categories', (req, res) => {
   });
 });
 
+// POST endpoint to handle form submission
 app.post('/submit-form', (req, res) => {
   const userFirstName = req.body.first_name;
   const userSurname = req.body.surname;

@@ -5,13 +5,13 @@ import './QRCode.css';
 
 const QRCodeGenerator = () => {
   const eventDetails = useSelector((state) => state.eventDetails);
-  console.log('eventDetails:', eventDetails);
+  //console.log('eventDetails:', eventDetails);
 
   // Convert date and time formats
   const formattedDate = formatDate(eventDetails[0][0].event_date);
   const formattedTime = formatTime(eventDetails[0][0].event_time);
-  console.log('formattedDate:', formattedDate);
-  console.log('formattedTime:', formattedTime);
+  //console.log('formattedDate:', formattedDate);
+  //console.log('formattedTime:', formattedTime);
 
   const iCalData = `BEGIN:VCALENDAR
 VERSION:2.0

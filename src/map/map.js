@@ -25,7 +25,7 @@ function Map({ selectedCategories }) {
         })
         .catch(error => console.error('Error fetching events:', error));
     } else {
-      console.log("No categories selected, clear the filtered events");
+      //console.log("No categories selected, clear the filtered events");
       setFilteredEvents([]);
     }
   }, [selectedCategories]);

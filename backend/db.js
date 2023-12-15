@@ -42,12 +42,14 @@ const submitForm = (userFirstName, userSurname, userEmail, events_id, callback) 
   const storedProcedure = 'CALL AddUserAndBooking(?, ?, ?, ?)';
   const validationQuery = 'SELECT * FROM events LIMIT 1';
 
+  // check if the database is connected using a simple query
   connection.query(validationQuery, (validationError, validationResults) => {
     if (validationError) {
       console.error('Error executing validation query:', validationError);
       return callback({ error: 'Internal Server Error during validation' });
     }
 
+    // execute the stored procedure
     connection.query(storedProcedure, [userFirstName, userSurname, userEmail, events_id], (error, results) => {
       if (error) {
         console.error('Failed to store data in the database:', error);

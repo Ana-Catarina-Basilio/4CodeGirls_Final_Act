@@ -13,8 +13,8 @@ const BookingConfirmation = () => {
  
 
   useEffect(() => {
-    console.log('eventDetails:', eventDetails);
-    console.log('bookingDetails:', bookingDetails);
+    //console.log('eventDetails:', eventDetails);
+    //console.log('bookingDetails:', bookingDetails);
   }, [eventDetails, bookingDetails]);
 
   const onReturnHomeClick = () => {
@@ -37,7 +37,7 @@ const BookingConfirmation = () => {
       </div>
       <h1>Winter WonderMap</h1>
       <div className= "booking-container">
-      <h1>Your reservation is in {firstName} !</h1>
+      <h1>Your reservation is in, {firstName}!</h1>
       <h2>We have sent a booking confirmation to {userEmail}</h2>
       <p> Reservation no: {bookingDetails}</p>
       <p> Name: {eventDetails[0][0].name}</p>

@@ -16,14 +16,18 @@ const BookingForm = () => {
   const eventDetails = useSelector((state) => state.eventDetails);
 
    // eslint-disable-next-line 
-
   const nameRegex = /^[a-zA-Z\-]+$/; // regex to check for letters and hypen in names
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex to check for valid email
   
 
-
   const handleReservation = async (event) => {
     event.preventDefault();
+
+    if (eventDetails.length === 0) {
+      alert('Please select an event before submitting the form');
+      navigate('/map');
+      return;
+    }
 
     // Validate first name
     if (!nameRegex.test(firstName)) {
@@ -48,12 +52,12 @@ const BookingForm = () => {
  
 // api call to save booking details....
     const reservationResult = await submitReservation(firstName, surname, userEmail, event.events_id);
-    console.log(reservationResult);
+    //console.log(reservationResult);
 
     if (reservationResult.success) {
       dispatch(storeEventDetails(eventDetails));
       // Example usage in BookingForm.js
-      console.log('Reservation successful');
+      //console.log('Reservation successful');
       navigate('/booking-confirmation', {
       state: {
         firstName,

@@ -1,3 +1,4 @@
+// This file contains the API calls to the backend for booking a reservation
 
 const submitReservation = async (firstName, surname, email, events_id, event_name, event_date,event_time) => {
     try {

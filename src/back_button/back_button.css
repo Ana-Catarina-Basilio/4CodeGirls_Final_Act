@@ -3,7 +3,7 @@
     src: url("../fonts/Festive-PersonalUse.otf");
   }
 
-  /* back_button.css */
+
 #back-button {
     font-family: "festive";
     background-color: #0C107E;
@@ -16,6 +16,6 @@
   }
   
   #back-button:hover {
-    background-color: #AF261C; /* Change color on hover */
+    background-color: #AF261C;
   }
   
