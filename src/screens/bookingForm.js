@@ -15,6 +15,7 @@ const BookingForm = () => {
   const dispatch = useDispatch();
   const eventDetails = useSelector((state) => state.eventDetails);
 
+   // eslint-disable-next-line 
 
   const nameRegex = /^[a-zA-Z\-]+$/; // regex to check for letters and hypen in names
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex to check for valid email

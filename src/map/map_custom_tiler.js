@@ -7,6 +7,7 @@
 
 // https://www.youtube.com/watch?v=i9oX1upSKjI&list=PLKmmzLM3RgQVFqnNqn3CI2Cxg4Rd__VbK
 
+ // eslint-disable-next-line 
 export default {
     maptiler: {
         url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",

@@ -1,26 +1,23 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import WelcomePage from './welcomePage';
+import { useNavigate } from 'react-router-dom';
+import './welcomePage.css';
 
-test('renders WelcomePage correctly', () => {
-  render(<BrowserRouter><WelcomePage username="TestUser" /></BrowserRouter>);
+const WelcomePage = ({ username }) => {
+  const navigate = useNavigate();
 
-  expect(screen.getByText(/Happy holidays TestUser!/i)).toBeInTheDocument();
-  expect(screen.getByText(/Welcome to Winter WonderMap/i)).toBeInTheDocument();
-  expect(screen.getByText(/Your Festive Adventure Begins Here/i)).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: /Explore/i })).toBeInTheDocument();
-});
+  const handleExplore = () => {
+    navigate('/map');
+  }
+  return (
+    <div className="mapContainer">
+      <h1>Happy holidays {username}!</h1>
+      <h1>Winter WonderMap</h1>
+      <h2>Your Festive Adventure Begins Here</h2>
+      <button className="exploreButton" type="button" onClick={handleExplore}>
+        Explore
+      </button>
+    </div>
+  );
+};
 
-test('clicking Explore button calls handleExplore', () => {
-  const navigateMock = jest.fn();
-  jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom'),
-    useNavigate: () => navigateMock,
-  }));
-
-  render(<BrowserRouter><WelcomePage username="TestUser" /></BrowserRouter>);
-
-  fireEvent.click(screen.getByRole('button', { name: /Explore/i }));
-  expect(navigateMock).toHaveBeenCalledWith('/map');
-});
+export default WelcomePage;

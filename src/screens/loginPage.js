@@ -12,6 +12,10 @@ const LoginPage = ({ onLogin }) => {
   const [password, setPassword] = useState('');
 
   const correctPassword = "festive";
+  // change username to sentence case
+
+  const formattedName = username.charAt(0).toUpperCase() + username.slice(1);
+
 
   const handleLogin = (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
@@ -32,7 +36,7 @@ const LoginPage = ({ onLogin }) => {
     }
 
     // Dispatch the login action with the entered username
-    dispatch(authActions.login(username));
+    dispatch(authActions.login(formattedName));
     navigate('/welcome');
   };
 
