@@ -14,12 +14,12 @@ const BookingForm = () => {
   const [userEmail, setUserEmail] = useState('');
   const dispatch = useDispatch();
   const eventDetails = useSelector((state) => state.eventDetails);
+  const [processingMessage, setProcessingMessage] = useState('');
+
 
    // eslint-disable-next-line 
   const nameRegex = /^[a-zA-Z\-]+$/; // regex to check for letters and hypen in names
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex to check for valid email
-  
-
   const handleReservation = async (event) => {
     event.preventDefault();
 
@@ -47,19 +47,26 @@ const BookingForm = () => {
       return;
     }
 
-    dispatch(storeEventDetails(eventDetails));
   
+try{
+  dispatch(storeEventDetails(eventDetails));
+// api call to save booking details.
 
-const eventsId = eventDetails.length > 0 ? eventDetails[0].events_id : null; // Assuming eventDetails is an array with at least one element
+  const eventsId = eventDetails.length > 0 ? eventDetails[0].events_id : null; // Assuming eventDetails is an array with at least one element
 //console.log('event-details:', eventsId)
 
-// api call to save booking details.
-    const reservationResult = await submitReservation(firstName, surname, userEmail, eventsId);
+  setProcessingMessage('Making your reservation... Please wait.');
+
+  const reservationResult = await submitReservation(firstName, surname, userEmail, eventsId);
     //console.log(reservationResult);
+    
+  setProcessingMessage('');
+
     if (reservationResult.success) {
-      console.log('eventDetails:', eventDetails);
-      // Example usage in BookingForm.js
-      //console.log('Reservation successful');
+      setFirstName('');
+  setSurname('');
+  setUserEmail('');
+
       navigate('/booking-confirmation', {
       state: {
         firstName,
@@ -67,13 +74,19 @@ const eventsId = eventDetails.length > 0 ? eventDetails[0].events_id : null; // 
         bookingDetails: reservationResult.bookingId,
       },
     });
-  } else {
+  }else {
       // Handle error
       console.error(reservationResult.error);
       alert(reservationResult.error);
       navigate('/map');
     }
-  };
+  } catch (error) {
+    // Handle any unexpected errors
+    console.error('Unexpected error:', error);
+    alert('An unexpected error occurred');
+    navigate('/map');
+  }
+};
 
 return(
   <div className="form-container">
@@ -124,13 +137,13 @@ return(
             required
           />
         </div>
-        <button className="reserveButton" type="submit" onClick={handleReservation}>
+        <button className="reserveButton" type="submit" onClick={handleReservation} disabled={processingMessage !== ''}>
         Reserve
       </button>
       </div>
         </form>
-    </div>
-  );
-};
-
+      {processingMessage && <p>{processingMessage}</p>}
+        </div>
+      )}
+    
 export default BookingForm;
