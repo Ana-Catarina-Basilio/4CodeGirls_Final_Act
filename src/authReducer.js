@@ -1,4 +1,4 @@
-// authReducer.js
+
 const initialState = {
   isLoggedIn: false,
   username: '',
