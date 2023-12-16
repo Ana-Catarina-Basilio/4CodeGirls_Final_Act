@@ -16,7 +16,7 @@ body p {
 
 .form-container {
   text-align: center;
-  background-image: url('../images/snow_background.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),url('../images/snow_background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,7 +59,7 @@ label + input {
 
 .reserveButton {
   padding: 10px 20px;
-  background-color: rgba(93, 8, 4, 0.65); 
+  background-color: rgba(239, 209, 165, 0.6); 
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -71,7 +71,7 @@ label + input {
 }
 
 .reserveButton:hover {
-  background-color: rgba(239, 209, 165, 0.6);
+  background-color: #7c0112;
 }
 
 .event-details {
