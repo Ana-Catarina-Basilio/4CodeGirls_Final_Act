@@ -1,4 +1,4 @@
-// CategoryBox.js
+
 import React from 'react';
 import './CategoryBox.css';
 
