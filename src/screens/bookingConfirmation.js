@@ -1,4 +1,4 @@
-// bookingConfirmation.js
+
 import React, {useEffect} from 'react';
 import './bookingConfirmation.css';
 import { useNavigate, useLocation } from 'react-router-dom';
