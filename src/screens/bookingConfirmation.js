@@ -4,6 +4,7 @@ import './bookingConfirmation.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import QRCodeGenerator from '../QRCode/QRCode';
+import Snow from '../snow-effect/Snow';
 
 const BookingConfirmation = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const BookingConfirmation = () => {
 
   return (
     <div className="bookingBox">
+    <Snow />
     <div className="naviButton">
       <button className="BackButton" type="button" onClick={onReturnHomeClick}>
         Home
