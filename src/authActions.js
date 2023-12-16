@@ -1,4 +1,4 @@
-// authActions.js
+
 export const setShowWelcome = (status) => ({
   type: 'SET_SHOW_WELCOME',
   payload: status,
