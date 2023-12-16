@@ -63,7 +63,7 @@ The project is structured as follows:
 
 
 ## Usage
-1. Enter your own name and password: ### `festive` into the login page
+1. Enter your own name and password:`festive` into the login page
 1. Explore the map to discover festive events.
 2. Filter events based on your preferences by selecting an event category
 3. Book your favorite events on the booking page.
