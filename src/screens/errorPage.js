@@ -1,4 +1,4 @@
-// errorPage.js
+
 import React from 'react';
 import './errorPage.css';
 
