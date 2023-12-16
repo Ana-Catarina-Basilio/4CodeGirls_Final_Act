@@ -49,13 +49,15 @@ const BookingForm = () => {
 
     dispatch(storeEventDetails(eventDetails));
   
- 
-// api call to save booking details....
-    const reservationResult = await submitReservation(firstName, surname, userEmail, event.events_id);
-    //console.log(reservationResult);
 
+const eventsId = eventDetails.length > 0 ? eventDetails[0].events_id : null; // Assuming eventDetails is an array with at least one element
+//console.log('event-details:', eventsId)
+
+// api call to save booking details.
+    const reservationResult = await submitReservation(firstName, surname, userEmail, eventsId);
+    //console.log(reservationResult);
     if (reservationResult.success) {
-      dispatch(storeEventDetails(eventDetails));
+      console.log('eventDetails:', eventDetails);
       // Example usage in BookingForm.js
       //console.log('Reservation successful');
       navigate('/booking-confirmation', {
