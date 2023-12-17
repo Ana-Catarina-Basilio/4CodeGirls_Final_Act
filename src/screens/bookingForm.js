@@ -20,14 +20,17 @@ const BookingForm = () => {
    // eslint-disable-next-line 
   const nameRegex = /^[a-zA-Z\-]+$/; // regex to check for letters and hypen in names
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex to check for valid email
+
+  useEffect(() => {
+    if (eventDetails.length === 0){
+  navigate('/map');
+  return;
+   }})
+
+  
   const handleReservation = async (event) => {
     event.preventDefault();
 
-    if (eventDetails.length === 0) {
-      alert('Please select an event before submitting the form');
-      navigate('/map');
-      return;
-    }
 
     // Validate first name
     if (!nameRegex.test(firstName)) {
