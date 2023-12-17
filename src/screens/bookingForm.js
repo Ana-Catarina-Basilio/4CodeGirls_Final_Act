@@ -5,6 +5,7 @@ import './bookingForm.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { storeEventDetails } from '../authActions';
 import { submitReservation } from '../api/booking_api';
+import BackToMap from '../map/back-to-map';
 
 
 const BookingForm = () => {
@@ -93,6 +94,7 @@ try{
 
 return(
   <div className="form-container">
+    <BackToMap />
       <h1> Fantastic choice! You have selected:</h1>
       <div className = "event-details">
       {eventDetails.map((event, index) => (
