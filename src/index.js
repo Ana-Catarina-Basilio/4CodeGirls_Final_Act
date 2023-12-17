@@ -10,7 +10,7 @@ const store = createStore(authReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router> {/* Wrap App with BrowserRouter */}
+    <Router>
       <App />
     </Router>
   </Provider>,
