@@ -1,0 +1,94 @@
+/* bookingForm.css */
+
+@font-face {
+  font-family: "festive";
+  src: url("../fonts/Festive-PersonalUse.otf");
+}
+
+body {
+  margin: 0;
+  font-family: "festive", sans-serif;
+}
+
+body p {
+  font-family: "Arial", sans-serif; /* Fallback font */
+}
+
+.form-container {
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),url('../images/snow_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #5E1C25;
+  text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff;
+}
+
+h1 {
+  color: #5E1C25;
+}
+
+.detailsSection {
+  margin-top: 20px;
+}
+
+label {
+  color: #5E1C25;
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 120px;
+  font-size: 25px;
+}
+
+input {
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 350px;
+  display: inline-block;
+}
+
+label + input {
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+
+.reserveButton {
+  padding: 10px 20px;
+  background-color: rgba(239, 209, 165, 0.6); 
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 auto; 
+  border-radius: 10px;
+  position: relative  ;
+  margin-left: 130px;
+}
+
+.reserveButton:hover {
+  background-color: #7c0112;
+}
+
+.event-details {
+  margin-top: 1px;
+  margin-bottom: 10px;
+  padding: 40px 60px;
+  font-size: 25px;
+  background-color: rgba(239, 209, 165, 0.6);
+  line-height: 2rem ;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: normal; 
+  line-height: 1.5; 
+  text-shadow: none;
+  border-radius: 20px;
+  border: 5px solid #8d5707;
+  font-family: sans-serif;
+}

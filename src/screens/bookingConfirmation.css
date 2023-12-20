@@ -1,0 +1,85 @@
+/* bookingConfirmation.css*/
+
+@font-face {
+    font-family: "festive";
+    src: url("../fonts/Festive-PersonalUse.otf");
+  }
+  
+  .bookingBox {
+    background-image: url('../images/booking_confirmation_screen.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh;
+    width: 100vw;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #5E1C25;
+    text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff; 
+  }
+  
+  .bookingBox h1 {
+    font-size: 2.5rem;
+    color: #5E1C25;
+    text-align: center;
+    letter-spacing: 2px; 
+    text-shadow: 2px 2px 2px #fff, -2px -2px 2px #fff, 2px -2px 2px #fff, -2px 2px 2px #fff; 
+  }
+  
+  .bookingBox h2 {
+    font-size: 1.5rem;
+    margin-top: 20px; 
+  }
+  
+  .BackButton, .SyncButton {
+    font-family: "festive";
+    background-color: #EFD1A5; 
+    color: #620b0b;
+    padding: 15px; 
+    border: none;
+    border-radius: 10px; 
+    font-size: medium;
+    cursor: pointer;
+    margin-top: 20px; 
+    padding:10px 40px;
+  }
+  
+
+  .naviButton{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 10px;
+    justify-content: space-between;
+    column-gap: 100px;
+  }
+
+  .booking-container{
+    background-color: #EFD1A5;
+    opacity: 0.8;
+    padding: 20px 80px;
+    opacity: 0.8;
+    border-radius: 50px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 5px solid #8d5707;
+    font-family: cursive; 
+  }
+  .qr-info{
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    color: red;
+    padding:0px;
+    margin: 5px;
+  }
+
+  .qr-code-title{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 2px;
+  }

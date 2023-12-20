@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "festive";
+    src: url("../fonts/Festive-PersonalUse.otf");
+  }
+
+
+.back-to-map-button {
+    font-family: "festive";
+    background-color: #0C107E;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    cursor: pointer;
+  }
+  
+  .back-to-map-button:hover {
+    background-color: #AF261C;
+  }
+  
